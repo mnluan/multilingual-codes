@@ -1,13 +1,15 @@
 package com.mnluan;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class TriangleType {
 
     public static void main(String[] args){
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter the sizes of the sides of the triangle (X, Y, and Z)");
+        System.out.println("Enter the sizes (cm) of the sides of the triangle (X, Y, and Z)");
         System.out.print("X: ");
         double x = scanner.nextDouble();
         System.out.print("Y: ");
@@ -19,7 +21,7 @@ public class TriangleType {
             System.out.println("The sizes of the sides should be positive.");
         }else{
             if(isTriangle(x,y,z)){
-                System.out.println("Yeah, It's a " + calcFormat(x,y,z) +" triangle!");
+                System.out.println("Yeah, It's a " + calcFormat(x,y,z) +" triangle! " + calcArea(x,y,z));
             }else{
                 System.out.println("Nope, It's not a triangle!");
             }
@@ -29,13 +31,14 @@ public class TriangleType {
 
     private static boolean isTriangle (double x, double y, double z){
         //check if it's a triangle
+        //The sum of two sides must be greater than the third side
         return ((x + y > z) && (x + z > y) && (y + z > x));
     }
 
     private static String calcFormat(double x, double y, double z){
         if (x == y && y == z){
             return "Equilateral";
-        }else if (x == y || x == z || y == z){
+        }else if (x == y || x == z || y == z) {
             return "Isosceles";
         }else{
             double biggerSide = Math.max(Math.max(x,y), z);
@@ -48,5 +51,15 @@ public class TriangleType {
                 return "Right";
             }
         }
+    }
+
+    private static String calcArea(double x, double y, double z){
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+
+        double p = ((x + y + z) / 2);
+        double A = Math.sqrt(p*(p-x)*(p-y)*(p-z));
+
+        return "And It Area is " + df.format(A) +"cm";
     }
 }
