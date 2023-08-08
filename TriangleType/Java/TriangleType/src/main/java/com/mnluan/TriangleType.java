@@ -21,7 +21,7 @@ public class TriangleType {
             System.out.println("The sizes of the sides should be positive.");
         }else{
             if(isTriangle(x,y,z)){
-                System.out.println("Yeah, It's a " + calcFormat(x,y,z) +" triangle! " + calcArea(x,y,z));
+                System.out.println("It's a " + calcFormat(x,y,z) +" triangle! " + calcArea(x,y,z));
             }else{
                 System.out.println("Nope, It's not a triangle!");
             }
