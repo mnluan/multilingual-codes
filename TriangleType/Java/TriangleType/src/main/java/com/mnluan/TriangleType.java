@@ -29,13 +29,13 @@ public class TriangleType {
 
     }
 
-    private static boolean isTriangle (double x, double y, double z){
+    public static boolean isTriangle (double x, double y, double z){
         //check if it's a triangle
         //The sum of two sides must be greater than the third side
         return ((x + y > z) && (x + z > y) && (y + z > x));
     }
 
-    private static String calcFormat(double x, double y, double z){
+    public static String calcFormat(double x, double y, double z){
         if (x == y && y == z){
             return "Equilateral";
         }else if (x == y || x == z || y == z) {
@@ -53,13 +53,13 @@ public class TriangleType {
         }
     }
 
-    private static String calcArea(double x, double y, double z){
+    public static String calcArea(double x, double y, double z){
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
 
         double p = ((x + y + z) / 2);
         double A = Math.sqrt(p*(p-x)*(p-y)*(p-z));
 
-        return "And It Area is " + df.format(A) +"cm";
+        return "And Its Area is " + df.format(A) +"cm";
     }
 }
