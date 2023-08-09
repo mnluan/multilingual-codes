@@ -32,7 +32,7 @@ public class TriangleTypeTest {
 
     @Test
     void testCalcArea() {
-        assertEquals("And Its Area is 6cm", TriangleType.calcArea(3, 4, 5));
+        assertEquals("And Its Area is 6,75cm", TriangleType.calcArea(3.0, 4.5, 5.5));
     }
 
     @Test
