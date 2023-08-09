@@ -8,10 +8,8 @@ public class Palindrome {
 
         System.out.println("Enter a string: ");
         String input = scanner.nextLine();
-        String string = input.toUpperCase();
-        string = string.replace(" ", "");
 
-        PalindromeChecker checker = new PalindromeChecker(string);
+        PalindromeChecker checker = new PalindromeChecker(input);
         boolean isPalindrome = checker.check();
 
         if (isPalindrome) {
@@ -30,10 +28,17 @@ class PalindromeChecker {
     }
 
     public boolean check() {
-        //A reverse version of the string stored in the "input" variable is created
-        String reversedInput = new StringBuilder(input).reverse().toString();
+        // Remove all spaces from the input string
+        String inputWithoutSpaces = input.replaceAll("\\s+", "");
 
-        //Checks if the reverse string is identical to the original
-        return input.equals(reversedInput);
+        // A reverse version of the string stored in the "inputWithoutSpaces" variable is created
+        String reversedInput = new StringBuilder(inputWithoutSpaces).reverse().toString();
+
+        // Converts both the input without spaces and reversed strings to uppercase before comparison
+        String upperCaseInput = inputWithoutSpaces.toUpperCase();
+        String upperCaseReversedInput = reversedInput.toUpperCase();
+
+        // Checks if the reverse string (in uppercase) is identical to the original (in uppercase)
+        return upperCaseInput.equals(upperCaseReversedInput);
     }
 }
