@@ -22,7 +22,7 @@ public class Main {
         }
     }
 
-    private static void createAndAddTimestamp(File file) throws IOException {
+    public static void createAndAddTimestamp(File file) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String timestamp = dateFormat.format(new Date());
@@ -32,7 +32,7 @@ public class Main {
         }
     }
 
-    private static void updateAndDisplayTimestamps(File file) throws IOException {
+    public static void updateAndDisplayTimestamps(File file) throws IOException {
         List<String> lines = Files.readAllLines(file.toPath());
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
